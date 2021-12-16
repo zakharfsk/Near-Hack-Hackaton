@@ -1,8 +1,43 @@
 {% extends "base.html" %}
 
-{% block title %}Create an account{% endblock %}
-
 {% block content %}
+<div class="log-in">
+    <div class="log-in-body">
+        <span class="log-in-h2-box">
+            <h2 class="log-in-btm">Log-In</h2>
+            <h2 class="reg-btm">Registration</h2>
+        </span>
+        <div class="log-in-box">
+            <form action="." method="POST">    
+                <label>
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                </label>
+                <label class="forget-label"><input type="checkbox"><p>Remember me</p></label>
+               
+                <p>Forgot password</p>
+                <label class="form-btm"><input type="submit" value="Login"></label>
+                <label><input type="hidden"></label>
+            </form>
+            <div class="log-auto-btm">
+                <img src="/img/git-logo.png" alt="git hub logo">
+                <p><a href="{% url "social:begin" "github" %}">Log-in with git hub</a></p>
+            </div>
+        </div>
+        <div class="reg-box">
+            <form action="." method="POST">
+                <!--
+                <label><input type="text" name="" placeholder="Login" minlength="1" maxlength="25"></label>
+                <label><input type="email" name="" placeholder="Email" minlength="5" maxlength="25"></label>
+                <label><input type="password" name ="" placeholder="Password" minlength="5" maxlength="25"></label>
+                <label><input type="password" name ="" placeholder="Repeat password" minlength="5" maxlength="25"></label>
+                -->
+                <label class="form-btm"><input type="submit" value="Registr"></label>
+            </form>
+        </div>
+    </div>
+</div>
+<!--
     <h1>Create an account</h1>
     <p>Please, sign up using the following form:</p>
     <form action="." method="post">
@@ -11,4 +46,5 @@
         <p><input type="submit" value="Create my account"></p>
         <a href="{% url "social:begin" "github" %}">github</a>
     </form>
+    -->
 {% endblock %}
