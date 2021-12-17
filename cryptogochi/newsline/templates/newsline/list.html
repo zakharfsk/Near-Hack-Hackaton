@@ -19,7 +19,7 @@
                     {% if new.is_published %}
                     <article class="news-box">
                         <h3 class="news-name">{{ new.title }}</h3>
-                        <p>{{ new.description }}</p>
+                        <p>{{ new.description|linebreaks|truncatechars:200 }}</p>
                         <p class="news-more">Learn more...</p>
                     </article>
                     {% endif %}
@@ -92,7 +92,7 @@
                                 <p class="news-view">{{ new.views }}</p>
                             </span>
                         </span>
-                        <p class="news-text">{{ new.description }}</p>
+                        <p class="news-text">{{ new.description|linebreaks|truncatechars:200 }}</p>
                         <p class="news-more">Learn more...</p>
                     </article>
                     {% endif %}
@@ -102,19 +102,4 @@
         </div>
     </div>
 </main>
-
-<script type="text/javascript">
-    var count = 0;
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '{% url "homepage" %}',  // URL to your view that serves new info
-            data: { 'count': count }
-        })
-            .done(function (response) {
-                $('#test').append(10);
-                count += 10;
-            });
-    }, 10000);
-</script>
 {% endblock content %}

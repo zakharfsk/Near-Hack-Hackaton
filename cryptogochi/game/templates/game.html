@@ -1,0 +1,162 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'game/img/git-logo.png' %}" type="image/png">
+</head>
+<body>
+    <!-- <header>
+        <div class="wrapper">
+            <div class="header-logo">
+                <a href="index.html" class="header-logo-img"><img src="/img/git-logo.png" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li><a href="game.html">Game</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="#">Profil</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> -->
+    <main class="game-main">
+        <section class="game">
+            <div class="game-screen">
+                <div class="cards-page">
+                    <figure class="card">
+                        <span class="card-img">
+                            <img src="/img/ntf.png" alt="1">
+                        </span>
+                        <figcaption>
+                            <div class="card-characteristics">
+                                <ul>
+                                    <li>
+                                        <p>Health:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Satiety:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Happiness:</p>
+                                        <p>100</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-prise">
+                                <p>Prise</p>
+                                <span>500 &#36</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure class="card">
+                        <span class="card-img">
+                            <img src="/img/ntf.png" alt="1">
+                        </span>
+                        <figcaption>
+                            <div class="card-characteristics">
+                                <ul>
+                                    <li>
+                                        <p>Health:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Satiety:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Happiness:</p>
+                                        <p>100</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-prise">
+                                <p>Prise</p>
+                                <span>500 &#36</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure class="card">
+                        <span class="card-img">
+                            <img src="/img/ntf.png" alt="1">
+                        </span>
+                        <figcaption>
+                            <div class="card-characteristics">
+                                <ul>
+                                    <li>
+                                        <p>Health:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Satiety:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Happiness:</p>
+                                        <p>100</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-prise">
+                                <p>Prise</p>
+                                <span>500 &#36</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure class="card">
+                        <span class="card-img">
+                            <img src="/img/ntf.png" alt="1">
+                        </span>
+                        <figcaption>
+                            <div class="card-characteristics">
+                                <ul>
+                                    <li>
+                                        <p>Health:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Satiety:</p>
+                                        <p>100</p>
+                                    </li>
+                                    <li>
+                                        <p>Happiness:</p>
+                                        <p>100</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-prise">
+                                <p>Prise</p>
+                                <span>500 &#36</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="home-page"><img src="/img/ntf.png" alt="s"></div>
+                <div class="chat-page"></div>
+            </div>
+            <div class="game-menu">
+                <ul>
+                    <li>
+                        <p class="cards-btm">Cards</p>
+                    </li>
+                    <li>
+                        <p class="home-btm">Home</p>
+                    </li>
+                    <li>
+                        <p class="chat-btm">Chat</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'game/js/script.js' %}"></script>
+</body>
+</html>
+

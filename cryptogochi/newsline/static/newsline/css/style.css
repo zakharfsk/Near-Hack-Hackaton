@@ -40,6 +40,7 @@ header .wrapper{
 .header-menu li{
     display: inline-block;
     margin-right: 10px;
+    padding: 5px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -54,9 +55,40 @@ header .wrapper{
     box-shadow:  0 5px 2px 1px rgba(0, 0, 0, .3);
     border-radius: 5px;
 }
-
 .header-menu li:last-child{
     margin-right: 0;
+}
+.profile{
+    position: relative;
+    display: inline-block;
+}
+.profile-menu{
+    padding: 20px;
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    width: 100px;
+    background: #ffe652;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.profile:hover .profile-menu{
+    display: block;
+    text-align: center;
+}
+.profile-menu a{
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.profile-menu hr{
+    margin-bottom: 10px;
+    background: #000;
+    border: 1px solid #000;
+}
+.profile-menu p{
+    margin: 0;
 }
 /* end header */
 main{
@@ -84,7 +116,7 @@ main{
     display: block;
     padding: 15px 30px;
     overflow-y: auto;
-    max-height: 1755px;
+    max-height: 175px;
 }
 .news-today .news-box{
     margin: 0;
@@ -180,7 +212,7 @@ main{
     margin: 0;
     top: 0;
     font-size: 2em;
-    transition: all .5s ease;
+    transition: all .3s ease;
     cursor: pointer;
 }
 .reg-btm{
@@ -237,7 +269,7 @@ main{
     padding: 5px;
     font-size: 20px;
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all .3s ease;
     border-radius: 5px;
 }
 .log-auto-btm:hover{
@@ -344,12 +376,117 @@ main{
 /* ----------------------------------------------game---------------------------------------------------- */
 .game-main{
     padding: 0;
+    overflow: hidden;
 }
 .game-screen{
-    height: 85vh;
-    background: red;
+    position: relative;
+    top: 0;
+    height: 100vh;
 }
 .game-menu{
-    height: 15vh;
-    background: lawngreen;
+    padding: 50px;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 5px;
+    border: 3px solid #ffe652;
+    z-index: 10;
+}
+.game-menu ul{
+    margin: 0;
+    padding: 0;
+}
+.game-menu li{
+    display: inline-block;
+    margin-right: 25px;
+    list-style: none;
+}
+.game-menu li:last-child{
+    margin-right: 0;
+}
+.game-menu li p{
+    margin: 0;
+    padding: 15px;
+    cursor: pointer;
+    border: 3px solid #ffe652;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: all .3s ease;
+}
+.home-btm{
+    background: #ffe652;
+}
+.game-menu li p:hover{
+    box-shadow:  3px 3px 2px 1px rgba(0, 0, 0, .3);
+}
+.cards-page{
+    transition: all .5s ease;
+    position: absolute;
+    left: -100vw;
+    height: 100vh;
+    width: 100vw;
+}
+.card{
+    display: inline-block;
+    background: #ffe652;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.card-img{
+    display: block;
+    width: 250px;
+}
+.card-img img{
+    width: 100%;
+    object-fit: cover;
+}
+.card figcaption{
+    padding: 20px 0;
+}
+.card-characteristics{
+    margin-bottom: 20px;
+}
+.card-characteristics ul{
+    margin: 0;
+    padding: 0;
+}
+.card-characteristics li{
+    margin-bottom: 15px;
+    list-style: none;
+    text-align: center;
+}
+.card-characteristics p{
+    display: inline-block;
+    margin: 0;
+}
+.card-prise{
+    text-align: center;
+}
+.card-prise p{
+    margin: 0;
+    margin-bottom: 10px;
+}
+.card-prise span{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 15px;
+    border-bottom: 2px solid #000;
+}
+.home-page{
+    transition: all .5s ease;
+    position: absolute;
+    background: darkgreen;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.chat-page{
+    transition: all .5s ease;
+    position: absolute;
+    left: 100vw;
+    height: 100vh;
+    width: 100vw;
+    background: goldenrod;
 }

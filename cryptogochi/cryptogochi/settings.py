@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'newsline.apps.NewslineConfig',
+    'game.apps.GameConfig',
     'social_django',
 ]
 
