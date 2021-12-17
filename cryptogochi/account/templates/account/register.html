@@ -8,16 +8,14 @@
             <h2 class="reg-btm">Registration</h2>
         </span>
         <div class="log-in-box">
-            <form action="." method="POST">    
-                <label>
-                    {{ form.as_p }}
-                    {% csrf_token %}
-                </label>
-                <label class="forget-label"><input type="checkbox"><p>Remember me</p></label>
-               
+            <form action="." method="post">
+                <label><input type="text" name="username" id="id_username" placeholder="Login" minlength="5" maxlength="25"></label>
+                <label><input type="password" name="password" id="id_password" placeholder="Password" minlength="5" maxlength="25"></label>
+                <label class="forget-label"><input type="checkbox" name="" id=""><p>Remember me</p></label>
                 <p>Forgot password</p>
-                <label class="form-btm"><input type="submit" value="Login"></label>
+                <label class="form-btm"><input type="submit" name="" id="" value="Login"></label>
                 <label><input type="hidden"></label>
+                {% csrf_token %}
             </form>
             <div class="log-auto-btm">
                 <img src="/img/git-logo.png" alt="git hub logo">
@@ -25,14 +23,13 @@
             </div>
         </div>
         <div class="reg-box">
-            <form action="." method="POST">
-                <!--
-                <label><input type="text" name="" placeholder="Login" minlength="1" maxlength="25"></label>
-                <label><input type="email" name="" placeholder="Email" minlength="5" maxlength="25"></label>
-                <label><input type="password" name ="" placeholder="Password" minlength="5" maxlength="25"></label>
-                <label><input type="password" name ="" placeholder="Repeat password" minlength="5" maxlength="25"></label>
-                -->
+            <form action="." method="post">
+                <label><input type="text" name="username" id="id_username" placeholder="Login" minlength="1" maxlength="25"></label>
+                <label><input type="email" name="email" id="reg_email" placeholder="Email" minlength="5" maxlength="25"></label>
+                <label><input type="password" name="password" id="id_password" placeholder="Password" minlength="5" maxlength="25"></label>
+                <label><input type="password" name="password2" id="id_password2" placeholder="Repeat password" minlength="5" maxlength="25"></label>
                 <label class="form-btm"><input type="submit" value="Registr"></label>
+                {% csrf_token %}
             </form>
         </div>
     </div>
