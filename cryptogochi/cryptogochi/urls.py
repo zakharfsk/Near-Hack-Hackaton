@@ -22,3 +22,4 @@ urlpatterns = [
     path('', include('account.urls')),
     path('', include('newsline.urls')),
 ]
+    
