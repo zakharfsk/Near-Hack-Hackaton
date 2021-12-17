@@ -14,6 +14,9 @@ body{
 
 
 /* ------------------------------regisstration-------------------------------------------------- */
+.a{
+    text-decoration: none;
+}
 .log-in{
     display: block;
     height: 100vh;
