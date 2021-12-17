@@ -1,31 +1,31 @@
-import time
-
+import random
 import celery
 from celery import Celery
-from datetime import timedelta
-from django.http.response import HttpResponse
+
 from django.shortcuts import render
+from faker import Faker
+
 
 from .models import *
+Faker.seed(0)
 
 # Create your views here.
 
-app = Celery()
-
-app.conf = {
-    # Executes every day at  12:30 pm.
-    'add-every-30-second': {
-        'task': 'tasks.elast',
-        'schedule': timedelta(seconds = 3),
-        'args': (),
-    },
-}
-
 def news_list(request):
-    count = 0
-    news = NewsList.objects.all()
-    count += 1
-    print(count)
     
-    return render(request, 'newsline/list.html', {'news': news, 'title': 'Новини', 'count': count})
+    if request.method == 'GET':
+        faker = Faker('ru_RU')
+        print(faker.text())
 
+        
+        news = NewsList.objects.all()
+        
+        # for i in range(10):
+        #     NewsList(title = f'{faker.name()}', description = f'{faker.text()}', views = random.randint(78, 1325), is_published = True).save()
+        
+        return render(request, 'newsline/list.html', {'news': news, 'title': 'Головна сторінка'})
+    elif request.method == 'POST':
+        print('test')
+
+def test_page(request):
+    return render(request, 'newsline/test_page.html')

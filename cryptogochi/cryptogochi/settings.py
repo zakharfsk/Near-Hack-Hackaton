@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'newsline.apps.NewslineConfig',
     'social_django',
-    'django_werkzeug'
 ]
 
 MIDDLEWARE = [
@@ -79,6 +78,12 @@ SOCIAL_AUTH_GITHUB_SCOPE = [
     # Обновляет инстанс user дополнительными данными с бекенда
     'social_auth.backends.pipeline.user.update_user_details',
 ]
+
+
+CRONJOBS = [
+    ('*/5 * * * *', 'newsline.cron.test')
+]
+
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_JSONFIELD_ENABLED = True

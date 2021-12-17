@@ -7,7 +7,6 @@
 
 {% block content %}
 
-<p>{{ count }}</p>
 
 <main>
     <div class="wrapper">
@@ -20,7 +19,7 @@
                     {% if new.is_published %}
                     <article class="news-box">
                         <h3 class="news-name">{{ new.title }}</h3>
-                        <p>{{ news.description }}</p>
+                        <p>{{ new.description }}</p>
                         <p class="news-more">Learn more...</p>
                     </article>
                     {% endif %}
@@ -77,16 +76,20 @@
                 </section>
                 <section class="index-news news-section">
                     <h3 class="main-title">Most viewed news</h3>
-                    
+
                     {% for new in news %}
                     {% if new.is_published %}
                     <article class="news-box">
+                        {% if new.photo_url %}
                         <span class="news-img"><img src="{{ new.photo_url.url }}" alt="news img"></span>
+                        {% else %}
+                        <span class="news-img"><img src="" alt="news img"></span>
+                        {% endif %}
                         <span>
                             <h3 class="news-name">{{ new.title }}</h3>
                             <span class="date-view">
                                 <p class="news-date">{{ new.time_created }}</p>
-                                <p class="news-view">200</p>
+                                <p class="news-view">{{ new.views }}</p>
                             </span>
                         </span>
                         <p class="news-text">{{ new.description }}</p>
@@ -99,7 +102,6 @@
         </div>
     </div>
 </main>
-
 
 <script type="text/javascript">
     var count = 0;

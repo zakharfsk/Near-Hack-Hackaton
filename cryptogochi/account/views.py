@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import logging
 
@@ -35,7 +35,12 @@ def user_login(request):
                 else:
                     return HttpResponse('Disabled account')
             else:
-                return HttpResponse('Invalid login')
+                return redirect('user_login')
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form, 'title': 'CryptoGochi Login'})
+
+def user_logout(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('user_login')

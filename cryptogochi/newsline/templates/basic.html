@@ -12,13 +12,17 @@
     <header>
         <div class="wrapper">
             <div class="header-logo">
-                <a href="index.html" class="header-logo-img"><img src="/img/git-logo.png" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'newslist/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
                     <li><a href="game.html">Game</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="">News</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="#">{{ user.username }}</a></li>
+                    {% else %}
+                        <li><a href="#">Profile</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -1,0 +1,15 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" value="Logout">Logout</button>
+</form>
+
+{% endblock content %}
