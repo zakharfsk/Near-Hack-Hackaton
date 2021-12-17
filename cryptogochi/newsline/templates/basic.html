@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'newsline\css\style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="header-logo">
+                <a href="index.html" class="header-logo-img"><img src="/img/git-logo.png" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li><a href="game.html">Game</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="#">Profil</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p class="copy">&reg; The Silver Beasts 2021</p>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'newslist\js\index.js' %}"></script>
+    
+</body>
+</html>

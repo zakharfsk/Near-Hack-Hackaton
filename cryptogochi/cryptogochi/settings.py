@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'newsline.apps.NewslineConfig',
     'social_django',
+    'django_werkzeug'
 ]
 
 MIDDLEWARE = [

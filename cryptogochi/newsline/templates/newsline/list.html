@@ -1,0 +1,118 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<p>{{ count }}</p>
+
+<main>
+    <div class="wrapper">
+        <div class="index-body">
+            <section class="news-today">
+                <h3 class="main-title">Today's news</h3>
+                <span class="news-body">
+
+                    {% for new in news %}
+                    {% if new.is_published %}
+                    <article class="news-box">
+                        <h3 class="news-name">{{ new.title }}</h3>
+                        <p>{{ news.description }}</p>
+                        <p class="news-more">Learn more...</p>
+                    </article>
+                    {% endif %}
+                    {% endfor %}
+                </span>
+            </section>
+            <div class="right-info-index">
+                <section class="index-crypto">
+                    <h3 class="main-title">Crypto</h3>
+                    <div class="crypto-info">
+                        <ol class="top-crypto">
+                            <li>
+                                <p>Bitcoin</p>
+                                <p>&#36 47,225.38</p>
+                            </li>
+                            <li>
+                                <p>Ethereum</p>
+                                <p>&#36 3,875.91</p>
+                            </li>
+                            <li>
+                                <p>Binance Coin</p>
+                                <p>&#36 531.58</p>
+                            </li>
+                            <li>
+                                <p>Tether</p>
+                                <p>&#36 1.00</p>
+                            </li>
+                            <li>
+                                <p>Solana</p>
+                                <p>&#36 177.45</p>
+                            </li>
+                            <li>
+                                <p>USD Coin</p>
+                                <p>&#36 1.00</p>
+                            </li>
+                            <li>
+                                <p>Cardano</p>
+                                <p>&#36 1.25</p>
+                            </li>
+                            <li>
+                                <p>XRP</p>
+                                <p>&#36 0.816248</p>
+                            </li>
+                            <li>
+                                <p>Polkadot</p>
+                                <p>&#36 25.32</p>
+                            </li>
+                            <li>
+                                <p>Avalanche</p>
+                                <p>&#36 104.11</p>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="index-news news-section">
+                    <h3 class="main-title">Most viewed news</h3>
+                    
+                    {% for new in news %}
+                    {% if new.is_published %}
+                    <article class="news-box">
+                        <span class="news-img"><img src="{{ new.photo_url.url }}" alt="news img"></span>
+                        <span>
+                            <h3 class="news-name">{{ new.title }}</h3>
+                            <span class="date-view">
+                                <p class="news-date">{{ new.time_created }}</p>
+                                <p class="news-view">200</p>
+                            </span>
+                        </span>
+                        <p class="news-text">{{ new.description }}</p>
+                        <p class="news-more">Learn more...</p>
+                    </article>
+                    {% endif %}
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<script type="text/javascript">
+    var count = 0;
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '{% url "homepage" %}',  // URL to your view that serves new info
+            data: { 'count': count }
+        })
+            .done(function (response) {
+                $('#test').append(10);
+                count += 10;
+            });
+    }, 10000);
+</script>
+{% endblock content %}

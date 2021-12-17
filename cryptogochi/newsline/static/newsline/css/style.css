@@ -75,10 +75,16 @@ main{
 .news-today{
     display: inline-block;
     margin: 0;
-    margin-right: 4%;
     padding: 0;
+    margin-right: 4%;
     width: 95%;
     font-size: 0;
+}
+.news-body{
+    display: block;
+    padding: 15px 30px;
+    overflow-y: auto;
+    max-height: 1755px;
 }
 .news-today .news-box{
     margin: 0;
