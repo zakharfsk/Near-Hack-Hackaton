@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="log-in">
@@ -18,7 +19,7 @@
                 {% csrf_token %}
             </form>
             <div class="log-auto-btm">
-                <img src="/img/git-logo.png" alt="git hub logo">
+                <img src="{% static "accaunt/img/git-logo.png" %}" alt="git hub logo">
                 <p><a href="{% url "social:begin" "github" %}">Log-in with git hub</a></p>
             </div>
         </div>
