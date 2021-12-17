@@ -10,27 +10,27 @@
         </span>
         <div class="log-in-box">
             <form action="." method="post">
+                {% csrf_token %}
                 <label><input type="text" name="username" id="id_username" placeholder="Login" minlength="5" maxlength="25"></label>
                 <label><input type="password" name="password" id="id_password" placeholder="Password" minlength="5" maxlength="25"></label>
                 <label class="forget-label"><input type="checkbox" name="" id=""><p>Remember me</p></label>
                 <p>Forgot password</p>
                 <label class="form-btm"><input type="submit" name="" id="" value="Login"></label>
                 <label><input type="hidden"></label>
-                {% csrf_token %}
             </form>
             <div class="log-auto-btm">
-                <img src="{% static "accaunt/img/git-logo.png" %}" alt="git hub logo">
-                <p><a href="{% url "social:begin" "github" %}">Log-in with git hub</a></p>
+                <img src="{% static "account/img/git-logo.png" %}" alt="git hub logo">
+                <p><a href="{% url "social:begin" "github" %}">Log-in with GithHub</a></p>
             </div>
         </div>
         <div class="reg-box">
             <form action="." method="post">
+                {% csrf_token %}
                 <label><input type="text" name="username" id="id_username" placeholder="Login" minlength="1" maxlength="25"></label>
-                <label><input type="email" name="email" id="reg_email" placeholder="Email" minlength="5" maxlength="25"></label>
+                <label><input type="email" name="email" id="id_email" placeholder="Email" minlength="5" maxlength="25"></label>
                 <label><input type="password" name="password" id="id_password" placeholder="Password" minlength="5" maxlength="25"></label>
                 <label><input type="password" name="password2" id="id_password2" placeholder="Repeat password" minlength="5" maxlength="25"></label>
                 <label class="form-btm"><input type="submit" value="Registr"></label>
-                {% csrf_token %}
             </form>
         </div>
     </div>
