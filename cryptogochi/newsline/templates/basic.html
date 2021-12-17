@@ -12,7 +12,7 @@
     <header>
         <div class="wrapper">
             <div class="header-logo">
-                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'newslist/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'newsline/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
@@ -27,10 +27,12 @@
                         <div class="profile-menu">
                             <a href="cards.html">My cards</a>
                             <hr>
-                            <p class="log-auto-btm">Log out</p>
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="log-auto-btm form-btm" type="submit">Logout</button>
+                                </form>
                         </div>
                     </li>
-                    
                 </ul>
             </div>
         </div>
