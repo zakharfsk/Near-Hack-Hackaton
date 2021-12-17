@@ -20,7 +20,7 @@ app.conf = {
         'args': (),
     },
 }
-@app.task()
+
 def news_list(request):
     count = 0
     news = NewsList.objects.all()
