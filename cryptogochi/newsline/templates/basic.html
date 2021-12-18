@@ -12,25 +12,28 @@
     <header>
         <div class="wrapper">
             <div class="header-logo">
-                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'newsline/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img
+                        src="{% static 'newsline/img/git-logo.png' %}" alt="Logo name and photo"><span
+                        class="logo-text">Tamagochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
                     <li><a href="{% url 'game' %}">Game</a></li>
                     <li><a href="">News</a></li>
+                    
                     <li class="profile">
                         {% if user.is_authenticated %}
-                            <a href="#">{{ user.username }}</a>
+                        <a href="">{{ user.username }}</a>
                         {% else %}
-                            <a href="{% url 'login' %}">Profile</a>
+                        <a href="">Profile</a>
                         {% endif %}
                         <div class="profile-menu">
+                            <a href="profile.html">My profile</a>
                             <a href="cards.html">My cards</a>
-                            <hr>
-                                <form action="{% url 'logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <button class="log-auto-btm form-btm" type="submit">Logout</button>
-                                </form>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="form-btm" value="Logout">Logout</button>
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -46,6 +49,7 @@
 
     <script type="text/javascript" src="{% static 'newslist\js\index.js' %}"></script>
     <script type="text/javascript" src="{% static 'newslist\js\script.js' %}"></script>
-    
+
 </body>
+
 </html>

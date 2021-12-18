@@ -8,13 +8,16 @@ body{
 /* --------------------------------------------index-------------------------------------------------- */
 /* header */
 header{
-    padding: 10px 0;
     background: #ffe652;
     box-shadow:  0 5px 15px 2px rgba(0, 0, 0, .115);
 }
 header .wrapper{
     display: flex;
     justify-content: space-between;
+}
+.header-logo{
+    display: flex;
+    align-items: center;
 }
 .header-logo-img img{
     width: 50px;
@@ -58,6 +61,24 @@ header .wrapper{
 .header-menu li:last-child{
     margin-right: 0;
 }
+.form-btm{
+    transition: all .3s ease;
+}
+.header-menu .form-btm{
+    padding: 10px 15px;
+    width: 100%;
+    background: #ffe652;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.header-menu .form-btm:hover{
+    transform: scale(1.05);
+    box-shadow:  0 5px 2px 1px rgba(0, 0, 0, .3);
+    border-radius: 5px;
+}
 .profile{
     position: relative;
     display: inline-block;
@@ -67,8 +88,8 @@ header .wrapper{
     display: none;
     position: absolute;
     top: 30px;
-    right: -30px;
-    width: 100px;
+    right: -40px;
+    width: 125px;
     background: #ffe652;
     border: 1px solid #000;
     border-radius: 5px;
@@ -78,14 +99,11 @@ header .wrapper{
     text-align: center;
 }
 .profile-menu a{
-    display: inline-block;
-    padding: 5px;
+    display: block;
+    padding: 10px;
     margin-bottom: 10px;
-}
-.profile-menu hr{
-    margin-bottom: 10px;
-    background: #000;
-    border: 1px solid #000;
+    border-bottom: 1px solid #000;
+
 }
 .profile-menu p{
     margin: 0;
@@ -374,6 +392,26 @@ main{
 
 
 /* ----------------------------------------------game---------------------------------------------------- */
+.game-header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 63px;    
+    opacity: 0;
+    transition: all .5s ease;
+    z-index: 5;
+}
+.game-header .wrapper{
+    transition: all .3s ease;
+}
+
+.game-header:hover{
+    opacity: 1;
+}
+.game{
+    overflow: hidden;
+    min-height: 100vh;
+}
 .game-main{
     padding: 0;
     overflow: hidden;
@@ -381,32 +419,55 @@ main{
 .game-screen{
     position: relative;
     top: 0;
-    height: 100vh;
+    height: 82.5vh;
 }
 .game-menu{
+    display: block;
     padding: 50px;
+    position: relative;
+    background: #fff;
+    border: 3px solid #ffe652;
+    border-radius: 5px;
+}
+.card-info,
+.page-menu,
+.game-btms{
+    display: inline-block;
     position: absolute;
-    bottom: -3px;
+    /* bottom: 0; */
+}
+.card-info{
+    left: 5%;
+    bottom: 45%;
+    transform: translate(-5%, -55%);
+}
+.game-btms{
+    right: 2.5%;
+    bottom: 13%;
+    transform: translate(-6%, -13%);
+}
+.page-menu{
+    padding: 50px 25px;
     left: 50%;
+    bottom: -3px;
     transform: translateX(-50%);
     background: #fff;
-    border-radius: 5px;
     border: 3px solid #ffe652;
-    z-index: 10;
+    border-radius: 5px 5px 0 0;
 }
-.game-menu ul{
+.page-menu ul{
     margin: 0;
     padding: 0;
 }
-.game-menu li{
+.page-menu li{
     display: inline-block;
     margin-right: 25px;
     list-style: none;
 }
-.game-menu li:last-child{
+.page-menu li:last-child{
     margin-right: 0;
 }
-.game-menu li p{
+.game-btm{
     margin: 0;
     padding: 15px;
     cursor: pointer;
@@ -418,21 +479,88 @@ main{
 .home-btm{
     background: #ffe652;
 }
-.game-menu li p:hover{
+.game-btm:hover{
     box-shadow:  3px 3px 2px 1px rgba(0, 0, 0, .3);
 }
+.game-btms .game-btm{
+    margin-right: 25px;
+}
+.game-btms .game-btm:last-child{
+    margin-right: 0;
+}
+.game-btms .game-btm:hover{
+    background: #ffe652;
+}
+.feed-btm,
+.play-btm,
+.treat-btm{
+    display: inline-block;
+}
+.card-info div{
+    display: inline-block;
+    margin-right: 25px;
+    width: 75px;
+    height: 20px;
+    border: 2px solid #ffe562;
+    border-radius: 5px;
+    z-index: 2;
+}
+.card-info span{
+    display: inline-block;
+    height: 100%;
+    border-radius: 3px;
+}
+.card-info div:last-child{
+    margin-right: 0;
+}
+.card-info div:after{
+    top: 35px;
+    width: 50px;
+}
+.health-bar{
+    width: 50%;
+    background: #db3156;
+}
+.satiety-bar{
+    width: 75%;
+    background: #f3a356;
+}
+.happiness-bar{
+    width: 100%;
+    background: #1ba356;
+}
+.game-health::after{
+    content: "health";
+    position: absolute;
+    left: 17px;
+}
+.game-satiety::after{
+    content: "satiety";
+    position: absolute;
+    left: 125px;
+}
+.game-happiness::after{
+    content: "happines";
+    position: absolute;
+    left: 225px;
+}
 .cards-page{
-    transition: all .5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     position: absolute;
     left: -100vw;
     height: 100vh;
     width: 100vw;
+    transition: all .5s ease;
 }
 .card{
     display: inline-block;
+    position: relative;
     background: #ffe652;
     border-radius: 5px;
     font-size: 20px;
+    transform: scale(0.7);
 }
 .card-img{
     display: block;
@@ -474,13 +602,46 @@ main{
     padding: 0 15px;
     border-bottom: 2px solid #000;
 }
-.home-page{
-    transition: all .5s ease;
+.card-select-box{
     position: absolute;
-    background: darkgreen;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    opacity: 0;
+    border-radius: 0 0 5px 5px;
+    transition: all .3s ease;
+}
+.card-select-box:hover{
+    opacity: 1;
+}
+.card-select-box .form-btm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 15px;
+    background: #ffe652;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.card-select-box .form-btm:hover{
+    color: #fff;
+    box-shadow: 3px 3px 1px 1px rgba(255, 228, 0, .3);
+}
+.home-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     left: 0;
     height: 100vh;
     width: 100vw;
+    transition: all .5s ease;
 }
 .chat-page{
     transition: all .5s ease;
@@ -489,4 +650,12 @@ main{
     height: 100vh;
     width: 100vw;
     background: goldenrod;
+}
+.player-nft{
+    position: relative;
+}
+.player-nft-name{
+    position: absolute;
+    top: 100px;
+    font-size: 25px;
 }

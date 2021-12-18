@@ -7,7 +7,7 @@
 
 {% block content %}
 
-{{ user.github }}
+{{ data }}
 
 <form action="{% url 'logout' %}" method="post">
     {% csrf_token %}
