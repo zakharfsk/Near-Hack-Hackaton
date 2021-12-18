@@ -11,8 +11,8 @@ class SelectNFT(models.Model):
     nft_storage_url = models.CharField(blank = True, max_length = 500)
     price_card = models.IntegerField(blank = True)
     is_published = models.BooleanField(default = False)
+    selected = models.BooleanField(default = False)
     
-
     def __str__(self):
         return self.name
 

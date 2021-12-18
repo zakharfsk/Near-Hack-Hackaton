@@ -10,9 +10,11 @@ fake = Faker()
 
 def show_menu_game(request):
     nft = SelectNFT.objects.all()
+    one = SelectNFT.objects.all()[:1]
 
     content = {
         'title': 'Tamagochi Game',
-        'nfts': nft
+        'nfts': nft,
+        'once': one
     }
     return render(request, 'game.html', content)

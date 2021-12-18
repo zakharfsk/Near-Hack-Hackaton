@@ -58,7 +58,7 @@
                             </div>
                             <div class="card-prise">
                                 <p>Price</p>
-                                <span>{{ n.price }}</span>
+                                <span>{{ n.price_card }}</span>
                             </div>
                         </figcaption>
                         <div class="card-select-box">
@@ -68,7 +68,8 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <div class="home-page"><div class="player-nft"><img src="/img/ntf.png" alt="s"></div><p class="player-nft-name">name</p></div>
+                
+                <div class="home-page"><div class="player-nft"><img src="{{ once.nft_storage_url }}" alt="s"></div><p class="player-nft-name">{{ once.name }}</p></div>
                 <div class="chat-page"></div>
             </div>
             <div class="game-menu">
