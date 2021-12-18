@@ -136,7 +136,7 @@ main{
     display: block;
     padding: 15px 30px;
     overflow-y: auto;
-    max-height: 175px;
+    max-height: 640px;
 }
 .news-today .news-box{
     margin: 0;
