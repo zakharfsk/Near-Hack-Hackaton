@@ -16,7 +16,7 @@
     <header>
         <div class="wrapper">
             <div class="header-logo">
-                <a href="index.html" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="index.html" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">CryptoGochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
@@ -32,6 +32,7 @@
                             <a href="{% url 'profile' %}">My profile</a>
                             <a href="{% url 'market' %}">Market</a>
                             <form action="." method="post">
+                                {% csrf_token %}
                                 <button type="submit" class="form-btm" value="Logout">Logout</button>
                             </form>
                         </div>

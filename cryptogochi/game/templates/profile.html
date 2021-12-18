@@ -14,7 +14,7 @@
     <header>
         <div class="wrapper">
             <div class="header-logo">
-                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">CryptoGochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
@@ -30,6 +30,7 @@
                             <a href="{% url 'profile' %}">My profile</a>
                             <a href="{% url 'market' %}">Market</a>
                             <form action="." method="post">
+                                {% csrf_token %}
                                 <button type="submit" class="form-btm" value="Logout">Logout</button>
                             </form>
                         </div>
@@ -53,36 +54,40 @@
             </section>
             <h2 class="profile-title">My cards</h2>
             <section class="user-cards">
+                {% for n in nft %}
+                {% if n.is_published %}
                 <figure class="card">
                     <span class="card-img">
-                        <img src="/img/ntf.png" alt="1">
+                        <img src="{{ n.nft_storage_url }}" alt="1">
                     </span>
                     <figcaption>
                         <div class="card-characteristics">
                             <ul>
                                 <li>
                                     <p>Health:</p>
-                                    <p>100</p>
+                                    <p>{{ n.health }}</p>
                                 </li>
                                 <li>
                                     <p>Satiety:</p>
-                                    <p>100</p>
+                                    <p>{{ m.satiety }}</p>
                                 </li>
                                 <li>
                                     <p>Happiness:</p>
-                                    <p>100</p>
+                                    <p>{{ n.happiness }}</p>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-prise">
-                            <p>Prise</p>
-                            <span>500 &#36</span>
+                            <p>Price</p>
+                            <span>{{ n.price_card }}</span>
                         </div>
                     </figcaption>
                     <div class="card-select-box">
                         <form action="." method="post"><input  class="form-btm" type="button" value="Sell"></form>
                     </div>
                 </figure>
+                {% endif %}
+                {% endfor %}
             </section>
         </div>
     </main>

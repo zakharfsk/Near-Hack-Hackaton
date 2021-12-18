@@ -14,7 +14,7 @@
             <div class="header-logo">
                 <a href="{% url 'homepage' %}" class="header-logo-img"><img
                         src="{% static 'newsline/img/git-logo.png' %}" alt="Logo name and photo"><span
-                        class="logo-text">Tamagochi</span></a>
+                        class="logo-text">CryptoGochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
@@ -28,7 +28,7 @@
                         <a href="">Profile</a>
                         {% endif %}
                         <div class="profile-menu">
-                            <a href="profile.html">My profile</a>
+                            <a href="{% url 'profile' %}">My profile</a>
                             <a href="{% url 'market' %}">Market</a>
                             <form action="{% url 'logout' %}" method="post">
                                 {% csrf_token %}
