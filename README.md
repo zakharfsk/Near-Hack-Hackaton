@@ -15,4 +15,12 @@ pip install -r requirements.txt
 
 3. Після установки переходимо в директорію `cd cryptogochi`
 
-4. Щоб
+4. Щоб все працювало виконуємо міграції баз данних.
+```
+python manage.py migrate
+```
+Після міграцій можемо запускати наш тестовий сервер:
+```
+python manage.py runserver
+```
+
