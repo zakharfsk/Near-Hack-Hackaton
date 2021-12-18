@@ -18,3 +18,13 @@ def show_menu_game(request):
         'once': one
     }
     return render(request, 'game.html', content)
+
+def show_market(request):
+    nfts = SelectNFT.objects.all()
+
+    return render(request, 'market.html', {'nft': nfts})
+
+def show_profile(request):
+    nfts = SelectNFT.objects.all()
+
+    return render(request, 'profile.html', {'nft': nfts})

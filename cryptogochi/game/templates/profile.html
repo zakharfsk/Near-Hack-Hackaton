@@ -1,0 +1,94 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagochi Profile</title>
+    <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'game/img/git-logo.png' %}" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="header-logo">
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li><a href="{% url 'game' %}">Game</a></li>
+                    <li><a href="{% url 'homepage' %}">News</a></li>
+                    <li class="profile">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}">{{ user.username }}</a>
+                        {% else %}
+                        <a href="{% url 'login' %}">Profile</a>
+                        {% endif %}
+                        <div class="profile-menu">
+                            <a href="{% url 'profile' %}">My profile</a>
+                            <a href="{% url 'market' %}">Market</a>
+                            <form action="." method="post">
+                                <button type="submit" class="form-btm" value="Logout">Logout</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h2 class="profile-title">Profile</h2>
+            <section class="profile-section">
+                <div class="profile-img">
+                    <img src="{% static 'game/img/git-logo.png' %}" alt="profile img">
+                </div>
+                <div class="profile-text">
+                    <h3>{{ user.username }}</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eius alias ullam voluptatum enim ab, in modi maiores, possimus fugit beatae consectetur saepe mollitia, quo illo error accusamus laboriosam corporis.</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam veniam architecto quia! Ipsam porro qui dolorem vitae, cumque excepturi doloremque! Harum reiciendis blanditiis cumque mollitia. Soluta eius recusandae asperiores eos.</p>
+                </div>
+            </section>
+            <h2 class="profile-title">My cards</h2>
+            <section class="user-cards">
+                <figure class="card">
+                    <span class="card-img">
+                        <img src="/img/ntf.png" alt="1">
+                    </span>
+                    <figcaption>
+                        <div class="card-characteristics">
+                            <ul>
+                                <li>
+                                    <p>Health:</p>
+                                    <p>100</p>
+                                </li>
+                                <li>
+                                    <p>Satiety:</p>
+                                    <p>100</p>
+                                </li>
+                                <li>
+                                    <p>Happiness:</p>
+                                    <p>100</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-prise">
+                            <p>Prise</p>
+                            <span>500 &#36</span>
+                        </div>
+                    </figcaption>
+                    <div class="card-select-box">
+                        <form action="." method="post"><input  class="form-btm" type="button" value="Sell"></form>
+                    </div>
+                </figure>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p class="copy">&reg; The Silver Beasts 2021</p>
+    </footer>
+    <script src="{% static 'game/js/script.js' %}"></script>
+</body>
+</html>

@@ -14,17 +14,28 @@
     <header class="game-header">
         <div class="wrapper">
             <div class="header-logo">
-                <a href="index.html" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
+                <a href="{% url 'homepage' %}" class="header-logo-img"><img src="{% static 'game/img/git-logo.png' %}" alt="Logo name and photo"><span class="logo-text">Tamagochi</span></a>
             </div>
             <div class="header-menu">
                 <ul>
-                    <li><a href="game.html">Game</a></li>
+                    <li><a href="{% url 'game' %}">Game</a></li>
                     <li><a href="{% url 'homepage' %}">News</a></li>
-                    {% if user.is_authenticated %}
-                        <li><a href="#">{{ user.username }}</a></li>
-                    {% else %}
-                        <li><a href="#">Profil</a></li>
-                    {% endif %}
+                    
+                    <li class="profile">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}">{{ user.username }}</a>
+                        {% else %}
+                        <a href="{% url 'login' %}">Profile</a>
+                        {% endif %}
+                        <div class="profile-menu">
+                            <a href="{% url 'profile' %}">My profile</a>
+                            <a href="{% url 'market' %}">Market</a>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="form-btm" value="Logout">Logout</button>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
