@@ -68,8 +68,11 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                
-                <div class="home-page"><div class="player-nft"><img src="{{ once.nft_storage_url }}" alt="s"></div><p class="player-nft-name">{{ once.name }}</p></div>
+                {% for n in nfts %}
+                {% if n.selected %}
+                <div class="home-page"><div class="player-nft"><img src="{{ n.nft_storage_url }}" alt="s"></div><p class="player-nft-name">{{ n.name }}</p></div>
+                {% endif %}
+                {% endfor %}
                 <div class="chat-page"></div>
             </div>
             <div class="game-menu">
