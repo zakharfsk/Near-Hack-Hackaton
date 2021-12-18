@@ -1,4 +1,4 @@
-# Near-Hack-Hackaton
+<h1 align="center">Near-Hack-Hackaton</h1>
 
 # Як запустити проект?
 
